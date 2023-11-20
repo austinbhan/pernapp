@@ -14,11 +14,11 @@ app.post("/todos", async (req, res) => {
     try {
         const { description } = req.body;
         const newTodo = await pool.query(
-            "INSERT INTO todo (description) VALUES($1) RETURNING *", 
+            "INSERT INTO todo (description) VALUES($1)", 
             [description]
-            );
-    
-            res.json(newTodo);
+        );
+
+        res.json(newTodo);
     } catch (err) {
         console.error(err.message);
     }
@@ -32,7 +32,7 @@ app.post("/todos", async (req, res) => {
 
 // delete todo
 
-app.listen(5432, () => {
-    console.log("server has started on port 5432");
+app.listen(3000, () => {
+    console.log("server has started on port 3000");
 });
 
