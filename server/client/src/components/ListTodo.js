@@ -19,21 +19,14 @@ const ListTodo = () => {
         getTodos();
     }, []);
 
-    console.log(todos);
+
     return (
     <Fragment>
         {" "}
     <table className="table mt-5 text-center">
-    <thead>
-      <tr>
-        <th>description</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
     <tbody>
       {todos.map(todo => (
-        <tr>
+        <tr key={todo.todo_id}> 
             <td>{todo.description}</td>
             <th>Edit</th>
             <th>Delete</th>
