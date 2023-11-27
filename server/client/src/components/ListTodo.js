@@ -1,40 +1,48 @@
-import {useEffect, useState, } from 'react';
+import React, { Fragment, useEffect, useState } from "react";
 
 const ListTodo = () => {
 
-    const [list, setList] = useState([]);
+    const [todos, setTodos] = useState([]);
 
-    // const [list, setList] = useState([]);
-    
-    // export ListTodo to app.js
-    // useEffect on ListTodo in App.js 
-
-    // Retrieve array of todos 
-    const listTodos = async () => {
+    const getTodos = async () => {
         try {
-            const response = await fetch('http://localhost:4000/todos');
+            const response = await fetch("http://localhost:4000/todos");
             const jsonData = await response.json();
-            setList(jsonData);
+            setTodos(jsonData.rows);
+            
         } catch(err) {
             console.error(err.message);
         }
     }
 
     useEffect(() => {
-        setList(listTodos);
+        getTodos();
     }, []);
 
-    console.log(list);
-
-    
-
+    console.log(todos);
     return (
-        
-        <div className="list">
-        {/* Loop through and display list here */}
-        <h3>This is the list component</h3>
-    </div>
-)
-}
+    <Fragment>
+        {" "}
+    <table className="table mt-5 text-center">
+    <thead>
+      <tr>
+        <th>description</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {todos.map(todo => (
+        <tr>
+            <td>{todo.description}</td>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+      ))}
+    </tbody>
+  </table> 
+  </Fragment>
+);
+};
 
 export default ListTodo;
