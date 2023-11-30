@@ -15,8 +15,15 @@ Setup Information
 - 4: npm init
 - 5: npm i express pg cors
 - 6: touch index.js
-Note: Use nodemon index to monitor backend
-Note: Use npm start to initiate front-end 
+- 7: db.js
+Note: Use nodemon index to monitorbackend
+
+About Backend Files
+1: index.js: sets up middleware and routes, initiates server listening, import express and cors
+2: db.js. Sets up listening link to backend, import to index.js
 
 - FrontEnd -
-- 1: 
+- 1: To initiate, create-react-app [app name here]
+cd [app name here]
+npm start
+  
