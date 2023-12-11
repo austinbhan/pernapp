@@ -27,3 +27,5 @@ About Backend Files
 cd [app name here]
 npm start
   
+12-11/2023
+- Notes: Spin up backend and front-end from their respective server and client folders (client can be inside server) in order to avoid crossed wires when starting ports 
